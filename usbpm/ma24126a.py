@@ -19,7 +19,7 @@ class ma24126a_driver(core.usbpm_driver):
         print(id)
         return
 
-    def quary(self,cmd,wt=0.05):
+    def quary(self,cmd,wt=0.1):
         self.send(cmd)
         time.sleep(wt)
         ret = self.read()
