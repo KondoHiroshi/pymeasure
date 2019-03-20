@@ -19,7 +19,7 @@ class ma24126a_driver(core.usbpm_driver):
         print(id)
         return
 
-    def quary(self,cmd,wt=0.05):
+    def quary(self,cmd,wt=0.001):
         self.send(cmd)
         time.sleep(wt)
         ret = self.read()
@@ -43,7 +43,7 @@ class ma24126a_driver(core.usbpm_driver):
                     print("ERROR. Maybe too long time passed")
                     sys.exit()
 
-    def pm_start(self):
+    def start(self):
         ret = self.quary(b"START\n")
         if ret == b"OK\n": pass
         else: sys.exit()
